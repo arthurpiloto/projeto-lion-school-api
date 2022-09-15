@@ -685,60 +685,26 @@ var alunos = [
     }
 ];
 
-const getFotoAluno = () => {
-    let listaFotoAluno = []
+const getAlunoPorCurso = (sigla) => {
+    let siglaCurso = sigla.toLowerCase()
+    let listaAlunoCurso = []
     let erro = true
 
     alunos.forEach(item => {
-        listaFotoAluno.push(item.foto)
-        erro = false
+        item.curso.forEach(item2 => {
+            if (item2.sigla.toLowerCase().includes(siglaCurso)) {
+                listaAlunoCurso.push({
+                    foto: item.foto,
+                    nome: item.nome
+                })
+                erro = false
+            }
+        })
     })
 
     if (erro) {
         return false
     } else {
-        return listaFotoAluno
+        return listaAlunoCurso
     }
 }
-
-const getNomeAluno = (/*matriculaAluno*/) => {
-    // let matricula = matriculaAluno
-    let listaNomeAlunos = []
-    let erro = true
-
-    // if (typeof(matricula) != `undefined`) {
-        // if (matricula != ``) {
-            alunos.forEach(item => {
-                listaNomeAlunos.push(item.nome)
-                erro = false
-            })
-        // }
-    // }
-
-    if (erro) {
-        return false
-    } else {
-        return listaNomeAlunos
-    }
-}
-
-const getAluno = () => {
-    let listaAluno = []
-    let erro = true
-    
-    for (let i = 0; i < alunos.length; i++) {
-        listaAluno.push({
-            foto: getFotoAluno()[i],
-            nome: getNomeAluno()[i]
-        })
-        erro = false
-    }
-
-    if (erro) {
-        return false
-    } else {
-        return listaAluno
-    }
-}
-
-console.log(getAluno())
