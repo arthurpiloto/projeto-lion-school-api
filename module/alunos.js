@@ -685,6 +685,22 @@ var alunos = [
     }
 ];
 
+const getFotoAluno = () => {
+    let listaFotoAluno = []
+    let erro = true
+
+    alunos.forEach(item => {
+        listaFotoAluno.push(item.foto)
+        erro = false
+    })
+
+    if (erro) {
+        return false
+    } else {
+        return listaFotoAluno
+    }
+}
+
 const getNomeAluno = (/*matriculaAluno*/) => {
     // let matricula = matriculaAluno
     let listaNomeAlunos = []
@@ -705,5 +721,3 @@ const getNomeAluno = (/*matriculaAluno*/) => {
         return listaNomeAlunos
     }
 }
-
-console.log(getNomeAluno())
