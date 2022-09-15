@@ -708,3 +708,28 @@ const getAlunoPorCurso = (sigla) => {
         return listaAlunoCurso
     }
 }
+
+const getAlunoPorStatus = (status) => {
+    let statusAluno = status.toLowerCase()
+    let listaAlunoStatus = []
+    let erro = true
+
+    alunos.forEach(item => {
+        if (item.status.toLowerCase().includes(statusAluno)) {
+            listaAlunoStatus.push({
+                foto: item.foto,
+                nome: item.nome,
+                status: item.status
+            })
+            erro = false
+        }
+    })
+
+    if (erro) {
+        return false
+    } else {
+        return listaAlunoStatus
+    }
+}
+
+console.log(getAlunoPorStatus(`cursando`))
