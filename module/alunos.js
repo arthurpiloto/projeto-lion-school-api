@@ -109,7 +109,7 @@ var alunos = [
     },
     {
         "foto"  : "https://cdn.icon-icons.com/icons2/1879/PNG/512/iconfinder-8-avatar-2754583_120515.png",
-        "nome"  : "ANDERSON GERÔNCIO SOUZA SILVA",
+        "nome"  : "Anderson Gerôncio Souza Silva",
         "matricula" : "20151001004",
         "sexo"  :   "M",
         "curso" : [
@@ -523,7 +523,7 @@ var alunos = [
     },
     {
         "foto"  : "https://cdn.icon-icons.com/icons2/1879/PNG/512/iconfinder-4-avatar-2754580_120522.png",
-        "nome"  : "HÉLIDA BENTO DE OLIVEIRA LINS",
+        "nome"  : "Hélida Bento De Oliveira Lins",
         "matricula" : "20151001016",
         "sexo"  :   "F",
         "curso" : [
@@ -684,3 +684,26 @@ var alunos = [
         "status" : "Cursando"
     }
 ];
+
+const getNomeAluno = (/*matriculaAluno*/) => {
+    // let matricula = matriculaAluno
+    let listaNomeAlunos = []
+    let erro = true
+
+    // if (typeof(matricula) != `undefined`) {
+        // if (matricula != ``) {
+            alunos.forEach(item => {
+                listaNomeAlunos.push(item.nome)
+                erro = false
+            })
+        // }
+    // }
+
+    if (erro) {
+        return false
+    } else {
+        return listaNomeAlunos
+    }
+}
+
+console.log(getNomeAluno())
