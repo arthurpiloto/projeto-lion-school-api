@@ -721,3 +721,24 @@ const getNomeAluno = (/*matriculaAluno*/) => {
         return listaNomeAlunos
     }
 }
+
+const getAluno = () => {
+    let listaAluno = []
+    let erro = true
+    
+    for (let i = 0; i < alunos.length; i++) {
+        listaAluno.push({
+            foto: getFotoAluno()[i],
+            nome: getNomeAluno()[i]
+        })
+        erro = false
+    }
+
+    if (erro) {
+        return false
+    } else {
+        return listaAluno
+    }
+}
+
+console.log(getAluno())
