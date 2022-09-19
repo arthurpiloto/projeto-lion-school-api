@@ -38,6 +38,17 @@ app.get(`/alunos/`, cors(), async (request, response, next) => {
     return response.status(404)
 })
 
+// EndPoint para filtrar os alunos pelo status
+app.get(`/alunos/status/`, cors(), async (request, response, next) => {
+    let status = request.query.filtro
+    let alunos = getAlunoPorStatus(status)
+
+    if (alunos) {
+        return response.status(200).json(alunos)
+    }
+    return response.status(404)
+})
+
 // EndPoint para filtrar as disciplinas pelo aluno
 app.get(`/disciplinas/aluno/:matricula`, cors(), async (request, response, next) => {
     let matricula = request.params.matricula
