@@ -42,6 +42,19 @@ app.get(`/alunos/`, cors(), async (request, response, next) => {
     }
 })
 
+// EndPoint para filtrar as disciplinas pelo aluno
+app.get(`/disciplinas/aluno/:matricula`, cors(), async (request, response, next) => {
+    let matricula = request.params.matricula
+    let disciplinas = getDisciplinaPorAluno(matricula)
+
+    if (disciplinas) {
+        response.status(200)
+        response.json(disciplinas)
+    } else {
+        response.status(404)
+    }
+})
+
 app.listen(8080, () => {
     console.log(`Server Waiting Requisitions`)
 })
