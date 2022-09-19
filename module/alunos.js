@@ -757,3 +757,9 @@ const getDisciplinaPorAluno = (matricula) => {
         return listaDisciplina
     }
 }
+
+module.exports = {
+    getAlunoPorCurso,
+    getAlunoPorStatus,
+    getDisciplinaPorAluno
+}

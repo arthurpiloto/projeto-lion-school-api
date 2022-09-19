@@ -29,3 +29,7 @@ const getCurso = () => {
         return listaCurso
     }
 }
+
+module.exports = {
+    getCurso
+}
