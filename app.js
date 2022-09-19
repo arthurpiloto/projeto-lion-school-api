@@ -22,11 +22,9 @@ app.get(`/cursos`, cors(), async (request, response, next) => {
     let cursos = getCurso()
 
     if (cursos) {
-        response.status(200)
-        response.json(cursos)
-    } else {
-        response.status(404)
+        return response.status(200).json(cursos)
     }
+    return response.status(404)
 })
 
 // EndPoint para filtrar os alunos pelo curso
@@ -35,11 +33,9 @@ app.get(`/alunos/`, cors(), async (request, response, next) => {
     let alunos = getAlunoPorCurso(curso)
 
     if (alunos) {
-        response.status(200)
-        response.json(alunos)
-    } else {
-        response.status(404)
+        return response.status(200).json(alunos)
     }
+    return response.status(404)
 })
 
 // EndPoint para filtrar as disciplinas pelo aluno
@@ -48,11 +44,9 @@ app.get(`/disciplinas/aluno/:matricula`, cors(), async (request, response, next)
     let disciplinas = getDisciplinaPorAluno(matricula)
 
     if (disciplinas) {
-        response.status(200)
-        response.json(disciplinas)
-    } else {
-        response.status(404)
+        return response.status(200).json(disciplinas)
     }
+    return response.status(404)
 })
 
 app.listen(8080, () => {
