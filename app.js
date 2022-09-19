@@ -19,11 +19,24 @@ app.use((request, response, next) => {
 
 // EndPoint para filtrar os cursos
 app.get(`/cursos`, cors(), async (request, response, next) => {
-    let curso = getCurso()
+    let cursos = getCurso()
 
-    if (curso) {
+    if (cursos) {
         response.status(200)
-        response.json(curso)
+        response.json(cursos)
+    } else {
+        response.status(404)
+    }
+})
+
+// EndPoint para filtrar os alunos pelo curso
+app.get(`/alunos/`, cors(), async (request, response, next) => {
+    let curso = request.query.curso
+    let alunos = getAlunoPorCurso(curso)
+
+    if (alunos) {
+        response.status(200)
+        response.json(alunos)
     } else {
         response.status(404)
     }
