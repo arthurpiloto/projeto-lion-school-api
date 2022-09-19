@@ -722,7 +722,6 @@ const getAlunoPorStatus = (status) => {
             listaAlunoStatus.push({
                 foto: item.foto,
                 nome: item.nome,
-                status: item.status
             })
             erro = false
         }
