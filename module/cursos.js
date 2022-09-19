@@ -16,17 +16,19 @@ var cursos = [
 // Retorna todos os cursos pela sigla
 const getCurso = () => {
     let listaCurso = []
+    let containerJSON = {}
     let erro = true
 
     cursos.forEach(item => {
         listaCurso.push(item.sigla)
         erro = false
     })
+    containerJSON.cursos = listaCurso
 
     if (erro) {
         return false
     } else {
-        return listaCurso
+        return containerJSON
     }
 }
 

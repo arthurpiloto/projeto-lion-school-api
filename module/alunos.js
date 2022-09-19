@@ -688,6 +688,7 @@ var alunos = [
 const getAlunoPorCurso = (sigla) => {
     let siglaCurso = sigla.toLowerCase()
     let listaAlunoCurso = []
+    let containerJSON = {}
     let erro = true
 
     alunos.forEach(item => {
@@ -701,17 +702,19 @@ const getAlunoPorCurso = (sigla) => {
             }
         })
     })
+    containerJSON.alunos = listaAlunoCurso
 
     if (erro) {
         return false
     } else {
-        return listaAlunoCurso
+        return containerJSON
     }
 }
 
 const getAlunoPorStatus = (status) => {
     let statusAluno = status.toLowerCase()
     let listaAlunoStatus = []
+    let containerJSON = {}
     let erro = true
 
     alunos.forEach(item => {
@@ -724,17 +727,19 @@ const getAlunoPorStatus = (status) => {
             erro = false
         }
     })
+    containerJSON.alunos = listaAlunoStatus
 
     if (erro) {
         return false
     } else {
-        return listaAlunoStatus
+        return containerJSON
     }
 }
 
 const getDisciplinaPorAluno = (matricula) => {
     let matriculaAluno = matricula
     let listaDisciplina = []
+    let containerJSON = {}
     let erro = true
 
     alunos.forEach(item => {
@@ -750,11 +755,12 @@ const getDisciplinaPorAluno = (matricula) => {
             })
         }
     })
+    containerJSON.disciplinas = listaDisciplina
 
     if (erro) {
         return false
     } else {
-        return listaDisciplina
+        return containerJSON
     }
 }
 
