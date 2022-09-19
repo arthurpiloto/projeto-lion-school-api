@@ -732,4 +732,28 @@ const getAlunoPorStatus = (status) => {
     }
 }
 
-console.log(getAlunoPorStatus(`cursando`))
+const getDisciplinaPorAluno = (matricula) => {
+    let matriculaAluno = matricula
+    let listaDisciplina = []
+    let erro = true
+
+    alunos.forEach(item => {
+        if (item.matricula.includes(matriculaAluno)) { 
+            item.curso.forEach(item2 => {
+                item2.disciplinas.forEach(item3 => {
+                    listaDisciplina.push({
+                        nome: item3.nome,
+                        media: item3.media
+                    })
+                    erro = false
+                })
+            })
+        }
+    })
+
+    if (erro) {
+        return false
+    } else {
+        return listaDisciplina
+    }
+}
