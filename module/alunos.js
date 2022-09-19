@@ -693,7 +693,7 @@ const getAlunoPorCurso = (sigla) => {
 
     alunos.forEach(item => {
         item.curso.forEach(item2 => {
-            if (item2.sigla.toLowerCase().includes(siglaCurso)) {
+            if (item2.sigla.toLowerCase().indexOf(siglaCurso) == 0) {
                 listaAlunoCurso.push({
                     foto: item.foto,
                     nome: item.nome
