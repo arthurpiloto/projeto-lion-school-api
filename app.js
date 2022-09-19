@@ -14,3 +14,7 @@ app.use((request, response, next) => {
     app.use(cors())
     next()
 })
+
+app.listen(8080, () => {
+    console.log(`Server Waiting Requisitions`)
+})
