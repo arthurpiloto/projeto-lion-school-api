@@ -20,7 +20,10 @@ const getCurso = () => {
     let erro = true
 
     cursos.forEach(item => {
-        listaCurso.push(item.sigla)
+        listaCurso.push({
+            sigla: item.sigla,
+            foto: item.icone
+        })
         erro = false
     })
     containerJSON.cursos = listaCurso
