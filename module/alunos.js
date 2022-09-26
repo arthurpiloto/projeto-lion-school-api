@@ -696,7 +696,8 @@ const getAlunoPorCurso = (sigla) => {
             if (item2.sigla.toLowerCase().indexOf(siglaCurso) == 0) {
                 listaAlunoCurso.push({
                     foto: item.foto,
-                    nome: item.nome
+                    nome: item.nome,
+                    matricula: item.matricula
                 })
                 erro = false
             }
