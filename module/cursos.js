@@ -21,6 +21,7 @@ const getCurso = () => {
 
     cursos.forEach(item => {
         listaCurso.push({
+            nome: item.nome,
             sigla: item.sigla,
             foto: item.icone
         })
