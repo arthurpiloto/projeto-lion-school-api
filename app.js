@@ -8,7 +8,7 @@ const app = express()
 const cors = require(`cors`)
 const bodyParser = require(`body-parser`)
 const { getCurso } = require(`./module/cursos.js`)
-const { getAlunoPorCurso, getAlunoPorStatus, getDisciplinaPorAluno } = require(`./module/alunos.js`)
+const { getAlunoPorCurso, getAlunoPorStatus, getAlunoPorMatricula, getDisciplinaPorAluno } = require(`./module/alunos.js`)
 
 app.use((request, response, next) => {
     response.header(`Access-Control-Allow-Origin`, `*`)
@@ -47,6 +47,17 @@ app.get(`/alunos/status/`, cors(), async (request, response, next) => {
         return response.status(200).json(alunos)
     }
     return response.status(404)
+})
+
+//EndPoint para filtrar um aluno pela matrícula
+app.get(`/aluno/:matricula`, cors(), async (request, response, next) => {
+    let matricula = request.params.matricula
+    let aluno = getAlunoPorMatricula(matricula)
+
+    if (aluno) {
+        return response.status(200).json(aluno)
+    }
+    return response.status(400)
 })
 
 // EndPoint para filtrar as disciplinas pelo aluno

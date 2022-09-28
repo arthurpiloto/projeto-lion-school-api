@@ -737,6 +737,30 @@ const getAlunoPorStatus = (status) => {
     }
 }
 
+const getAlunoPorMatricula = (matricula) => {
+    let matriculaAluno = matricula
+    let dadosAluno = []
+    let containerJSON = {}
+    let erro = true
+
+    alunos.forEach(item => {
+        if (item.matricula.includes(matriculaAluno)) {
+            dadosAluno.push({
+                nome: item.nome,
+                foto: item.foto
+            })
+            erro = false
+        }
+    })
+    containerJSON.aluno = dadosAluno
+
+    if (erro) {
+        return false
+    } else {
+        return containerJSON
+    }
+}
+
 const getDisciplinaPorAluno = (matricula) => {
     let matriculaAluno = matricula
     let listaDisciplina = []
@@ -768,5 +792,6 @@ const getDisciplinaPorAluno = (matricula) => {
 module.exports = {
     getAlunoPorCurso,
     getAlunoPorStatus,
+    getAlunoPorMatricula,
     getDisciplinaPorAluno
 }
