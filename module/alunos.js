@@ -697,7 +697,8 @@ const getAlunoPorCurso = (sigla) => {
                 listaAlunoCurso.push({
                     foto: item.foto,
                     nome: item.nome,
-                    matricula: item.matricula
+                    matricula: item.matricula,
+                    status: item.status
                 })
                 erro = false
             }
