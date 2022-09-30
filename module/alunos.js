@@ -713,18 +713,20 @@ const getAlunoPorCurso = (sigla) => {
     }
 }
 
-const getAlunoPorStatus = (status) => {
+const getAlunoPorStatus = (array, status) => {
+    let arrayAlunos = array
     let statusAluno = status.toLowerCase()
     let listaAlunoStatus = []
     let containerJSON = {}
     let erro = true
 
-    alunos.forEach(item => {
+    if (status == `status`) {
+        return arrayAlunos
+    }
+
+    arrayAlunos.forEach(item => {
         if (item.status.toLowerCase().includes(statusAluno)) {
-            listaAlunoStatus.push({
-                foto: item.foto,
-                nome: item.nome,
-            })
+            listaAlunoStatus.push(item)
             erro = false
         }
     })
