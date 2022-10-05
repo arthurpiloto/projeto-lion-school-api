@@ -42,7 +42,7 @@ app.get(`/.netlify/functions/api/alunos/`, cors(), async (request, response, nex
 app.get(`/.netlify/functions/api/alunos/curso/`, cors(), async (request, response, next) => {
     let curso = request.query.curso
     let status = request.query.filtro
-    let alunos = getAlunoPorCurso(curso)
+    let { alunos } = getAlunoPorCurso(curso)
     
     if (status != undefined) {
         alunos = await getAlunoPorStatus(alunos, status)
